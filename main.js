@@ -5,6 +5,8 @@ var p2Display = document.getElementById("p2Display");
 var resetButton = document.getElementById("reset");
 var p1Score = 0;
 var p2Score = 0;
+var gameOver = false;
+var winningScore = 5;
 
 p1Button.addEventListener("click", function(){
     p1ScoreUpdate();
@@ -15,11 +17,21 @@ p2Button.addEventListener("click", function(){
 });
 
 function p1ScoreUpdate() {
-    p1Score++;
+    if(!gameOver){
+        p1Score++;
+        if(p1Score === winningScore){
+            gameOver = true;
+        }
+    }
     p1Display.textContent = p1Score;
 }
 
 function p2ScoreUpdate() {
-    p2Score++;
+    if(!gameOver){
+        p2Score++;
+        if(p2Score === winningScore){
+            gameOver = true;
+        }
+    }
     p2Display.textContent = p2Score;
 }
